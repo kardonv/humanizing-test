@@ -1,0 +1,17 @@
+[
+    {
+        "caetgory": "category_1",
+        "origin": "origin_1",
+        "message": "msg_1"
+    },
+    {
+        "caetgory": "category_2",
+        "origin": "origin_2",
+        "message": "msg_2"
+    },
+    {
+        "caetgory": "category_3",
+        "origin": "origin_3",
+        "message": "msg_3"
+    }
+]
