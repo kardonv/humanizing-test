@@ -17,7 +17,6 @@ describe('MessageService', () => {
     const baseUrl = `${API_VERSION}/messages`;
 
     let messageCollection: MessageType[] = [];
-    const invalidId = new mongoose.Types.ObjectId();
 
     before(async () => {
         const url = await mongoServer.getConnectionString();
@@ -80,7 +79,7 @@ describe('MessageService', () => {
                 }
 
                 expect((body || []).length).to.be
-                    .equal(2, 'Array contains wrong number of elements.');
+                    .equal(1, 'Array contains wrong number of elements.');
 
                 done();
             });
@@ -92,12 +91,11 @@ describe('MessageService', () => {
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(200)
-                .end((err, res) => {
+                .end((err, { body }) => {
                     if (err) {
                         return done(err);
                     }
 
-                    const body = res.body;
                     expect((body || []).length).to.be
                         .equal(1, 'Array contains wrong number of elements.');
 
@@ -117,7 +115,7 @@ describe('MessageService', () => {
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(201)
-                .end((err, { body }) => {
+                .end((err: any, { body }) => {
                     if (err) {
                         return done(err);
                     }
