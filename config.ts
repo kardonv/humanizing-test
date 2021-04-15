@@ -15,6 +15,7 @@ export const DB_CONN_STR = process.env.DB_CONN_STR || `${
     DEFAULT_DB_NAME}`;
 
 export async function dbConfig() {
+    console.log('Configuration databse...');
     return await connect(DB_CONN_STR, {
         useNewUrlParser: true,
         useUnifiedTopology: true,

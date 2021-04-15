@@ -7,18 +7,14 @@ const messageSchema = new Schema({
     category: {
         type: String,
         required: true,
-        unique: true,
     },
     origin: {
         type: String,
         required: true,
-        minlength: 8,
-        select: false,
     },
     message: {
         type: String,
         required: true,
-        maxlength: 25,
     },
 }, {
     timestamps: true,

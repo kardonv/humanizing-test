@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+service MessageService {
+    rpc getMessageList (MessageListFilter) returns (stream Message) {}
+    rpc createMessage (CreateMessageInput) returns (Message) {}
+}
+
+message Empty {}
+
+message Message {
+    string id = 1;
+    string origin = 2;
+    string category = 3;
+    string message = 4;
+    string date = 5;
+}
+message CreateMessageInput {
+    string origin = 1;
+    string category = 2;
+    string message = 3;
+}
+
+message MessageListFilter {
+    int32 pageSize = 3;
+    int32 pageToken = 4;
+}
